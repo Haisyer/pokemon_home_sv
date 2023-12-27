@@ -8,7 +8,7 @@ from typing import Union
 class pokemon_home:
     """ポケモンHOMEのデータを取得するためのクラス。"""
 
-    def __init__(self, folder_path: str, language: str = "JPN") -> None:
+    def __init__(self, folder_path: str, language: str = "CHS") -> None:
         """指定されたフォルダパスから、マッピング用のjsonファイルを取得。
 
         param:
@@ -184,22 +184,22 @@ class pokemon_home:
 
 
 if __name__ == "__main__":
-    pokemon = pokemon_home("./asset")
+    pokemon = pokemon_home("../asset")
     pokemon.request_parameters_from_season_info(3, 0)
     move, ability, item, terastype = pokemon.output_pokemon_detail()
     pd.DataFrame(move, columns=["pokemon", "id", "form", "rank", "move", "raito"]).to_csv(
-        "./output/move.csv",
-        encoding="shift-jis",
+        "../output/move.csv",
+        encoding="utf-8-sig",
     )
     pd.DataFrame(ability, columns=["pokemon", "id", "form", "rank", "ability", "raito"]).to_csv(
-        "./output/ability.csv",
-        encoding="shift-jis",
+        "../output/ability.csv",
+        encoding="utf-8-sig",
     )
     pd.DataFrame(item, columns=["pokemon", "id", "form", "rank", "item", "raito"]).to_csv(
-        "./output/item.csv",
-        encoding="shift-jis",
+        "../output/item.csv",
+        encoding="utf-8-sig",
     )
     pd.DataFrame(terastype, columns=["pokemon", "id", "form", "rank", "tarastype", "raito"]).to_csv(
-        "./output/terastype.csv",
-        encoding="shift-jis",
+        "../output/terastype.csv",
+        encoding="utf-8-sig",
     )
